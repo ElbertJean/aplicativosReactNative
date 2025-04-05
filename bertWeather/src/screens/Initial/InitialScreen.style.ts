@@ -3,9 +3,9 @@ import {StyleSheet, Dimensions} from 'react-native';
 const {width, height} = Dimensions.get('window');
 
 const styles = StyleSheet.create({
-  slide: {
+  container: {
     flex: 1,
-    backgroundColor: '#191919',
+    backgroundColor: '#121e2b',
   },
   overlay: {
     flex: 1,
@@ -13,8 +13,28 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(25, 25, 25, 0.1.5)',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingBottom: 150,
     paddingHorizontal: 16,
+  },
+  title: {
+    fontSize: 48,
+    fontWeight: 'bold',
+    color: '#fff',
+    marginBottom: 8,
+    textAlign: 'center',
+  },
+  imageContainer: {
+    width: '100%',
+    height: 300,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  text: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#fff',
+    textAlign: 'center',
+    lineHeight: 32,
   },
 });
 

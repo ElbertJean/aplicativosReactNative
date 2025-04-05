@@ -16,15 +16,21 @@ const {width, height} = Dimensions.get('window');
 const slides = [
   {
     key: 'one',
-    image: require('../../assets/slide11.png'),
+    title: 'Bem-vindo!',
+    text: 'Acompanhe a previsão do tempo de forma simples e rápida.',
+    image: require('../../assets/slide1.png'),
   },
   {
     key: 'two',
-    image: require('../../assets/slide22.png'),
+    title: 'Informações precisas',
+    text: 'Dados meteorológicos atualizados em tempo real.',
+    image: require('../../assets/slide2.png'),
   },
   {
     key: 'three',
-    image: require('../../assets/slide33.png'),
+    title: 'Na palma da mão',
+    text: 'Tenha o clima de qualquer cidade ao seu alcance.',
+    image: require('../../assets/slide3.png'),
   },
 ];
 
@@ -37,9 +43,15 @@ function InitialScreen() {
 
   const renderItem = ({item}: any) => {
     return (
-      <ImageBackground source={item.image} style={styles.slide}>
-        <View style={styles.overlay}></View>
-      </ImageBackground>
+      <View style={styles.container}>
+        <View style={styles.overlay}>
+          <Text style={styles.title}>{item.title}</Text>
+          <View style={styles.imageContainer}>
+            <Image source={item.image} style={styles.image} />
+          </View>
+          <Text style={styles.text}>{item.text}</Text>
+        </View>
+      </View>
     );
   };
 
