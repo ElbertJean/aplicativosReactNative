@@ -1,36 +1,60 @@
-import React, {JSX} from 'react';
-import {View, Text, TouchableOpacity, Image} from 'react-native';
-import styles from './InitialScreen.style';
-import image from '../../assets/initialImage.png';
-import {CloudSun} from 'phosphor-react-native';
+import React, {useState} from 'react';
+import {View, Text, Image, Dimensions, ImageBackground} from 'react-native';
+import AppIntroSlider from 'react-native-app-intro-slider';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from '../../routes/Router';
+import styles from './InitialScreen.style';
 
 type InitialScreenNavigationProp = StackNavigationProp<
   RootStackParamList,
   'Initial'
 >;
 
-function InitialScreen(): JSX.Element {
+const {width, height} = Dimensions.get('window');
+
+const slides = [
+  {
+    key: 'one',
+    image: require('../../assets/slide11.png'),
+  },
+  {
+    key: 'two',
+    image: require('../../assets/slide22.png'),
+  },
+  {
+    key: 'three',
+    image: require('../../assets/slide33.png'),
+  },
+];
+
+function InitialScreen() {
   const navigation = useNavigation<InitialScreenNavigationProp>();
 
+  const onDone = () => {
+    navigation.navigate('Home');
+  };
+
+  const renderItem = ({item}: any) => {
+    return (
+      <ImageBackground source={item.image} style={styles.slide}>
+        <View style={styles.overlay}></View>
+      </ImageBackground>
+    );
+  };
+
   return (
-    <View style={styles.container}>
-      <View style={styles.headerContainer}>
-        <View style={styles.imageContainer}>
-          <Image source={image} style={styles.image} />
-        </View>
-      </View>
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => navigation.navigate('Home')}>
-          <CloudSun size={30} color="#F4F5F6" />
-          <Text style={styles.buttonText}>Ver previsão do tempo</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
+    <AppIntroSlider
+      renderItem={renderItem}
+      data={slides}
+      onDone={onDone}
+      showSkipButton={true}
+      onSkip={onDone}
+      nextLabel="Proximo"
+      skipLabel="Pular"
+      doneLabel="Ver previsão"
+      activeDotStyle={{backgroundColor: '#1B56FD'}}
+    />
   );
 }
 
