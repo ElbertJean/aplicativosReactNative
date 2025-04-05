@@ -1,10 +1,16 @@
-import React, {useState} from 'react';
-import {View, Text, Image, Dimensions, ImageBackground} from 'react-native';
+import React from 'react';
+import {View, Text, Image, Dimensions} from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from '../../routes/Router';
 import styles from './InitialScreen.style';
+import {
+  CaretDoubleLeft,
+  CaretDoubleRight,
+  CaretRight,
+  SignIn,
+} from 'phosphor-react-native';
 
 type InitialScreenNavigationProp = StackNavigationProp<
   RootStackParamList,
@@ -47,7 +53,7 @@ function InitialScreen() {
         <View style={styles.overlay}>
           <Text style={styles.title}>{item.title}</Text>
           <View style={styles.imageContainer}>
-            <Image source={item.image} style={styles.image} />
+            <Image source={item.image} />
           </View>
           <Text style={styles.text}>{item.text}</Text>
         </View>
@@ -64,8 +70,16 @@ function InitialScreen() {
       onSkip={onDone}
       nextLabel="Proximo"
       skipLabel="Pular"
+      renderNextButton={() => (
+        <CaretRight size={32} color="#fff" weight="bold" />
+      )}
+      renderDoneButton={() => <SignIn size={32} color="#fff" weight="bold" />}
+      renderSkipButton={() => (
+        <CaretDoubleRight size={32} color="#fff" weight="bold" />
+      )}
       doneLabel="Ver previsão"
-      activeDotStyle={{backgroundColor: '#1B56FD'}}
+      activeDotStyle={{backgroundColor: '#1B56FD', width: 15, height: 10}}
+      dotStyle={{backgroundColor: '#F4F5F6', width: 15, height: 10}}
     />
   );
 }
