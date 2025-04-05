@@ -36,6 +36,16 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     lineHeight: 32,
   },
+  activeDot: {
+    backgroundColor: '#1B56FD',
+    width: 15,
+    height: 10
+  },
+  noActiveDot: {
+    backgroundColor: '#F4F5F6',
+    width: 15,
+    height: 10
+  }
 });
 
 export default styles;
