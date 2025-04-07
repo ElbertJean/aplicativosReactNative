@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
   },
   containerHeader: {
     width: '100%',
-    height:250,
+    height: 250,
     display: 'flex',
     flexDirection: 'column',
     paddingHorizontal: 16,
@@ -87,6 +87,19 @@ const styles = StyleSheet.create({
   textItem: {
     fontSize: 16,
     color: '#fff',
+  },
+  containerSpinner: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flex: 1,
+    flexDirection: 'row',
+    gap: 12,
+  },
+  textSpinner: {
+    fontSize: 18,
+    color: '#fff',
+    fontWeight: 'bold',
   },
 });
 
