@@ -5,7 +5,7 @@ const {width, height} = Dimensions.get('window');
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#121e2b',
+    backgroundColor: '#1E3F74',
   },
   overlay: {
     flex: 1,
@@ -39,13 +39,13 @@ const styles = StyleSheet.create({
   activeDot: {
     backgroundColor: '#1B56FD',
     width: 15,
-    height: 10
+    height: 10,
   },
   noActiveDot: {
     backgroundColor: '#F4F5F6',
     width: 15,
-    height: 10
-  }
+    height: 10,
+  },
 });
 
 export default styles;
